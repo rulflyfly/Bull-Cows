@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include <string>
+#include <map>
+#define TMap std::map
 
 #endif /* FBull_CowsGame_hpp */
 
@@ -33,6 +35,7 @@ public:
     bool IsGameWon() const;
     bool IsIsogram(FString) const;
     bool IsLowerCase(FString) const;
+    void SetMyHiddenWord(int32);
     
     void Reset();
     EGuessStatus CheckGuessValidity(FString) const;
@@ -40,7 +43,6 @@ public:
     FBullCowCount SubmitValidGuess(FString);
     
 private:
-    int32 MyMaxTries;
     int32 MyCurrentTry;
     FString MyHiddenWord;
     bool bGameIsWon;

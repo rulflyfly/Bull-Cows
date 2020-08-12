@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 #include "FBull&CowsGame.hpp"
+#include <sstream>
 
 using FText = std::string;
 using int32 = int;
@@ -18,6 +19,7 @@ FText GetGuess ();
 void GiveUserFeedback ();
 void PlayGame ();
 bool AskToPlayAgain();
+int32 ChooseAHiddenWordLength();
 
 FBullCowGame BCGame;
 
@@ -33,12 +35,36 @@ int main()
     while (bPlayAgain);
     
     return 0;
-}
+};
+
+int32 ChooseAHiddenWordLength()
+{
+    std::cout << "To choose a word length enter a number from 3 to 6: ";
+    FString WordLengthString = "";
+    getline(std::cin, WordLengthString);
+    
+    std::stringstream geek(WordLengthString);
+    int32 WordLengthNum = 0;
+    geek >> WordLengthNum;
+    
+    BCGame.SetMyHiddenWord(WordLengthNum);
+    
+    return WordLengthNum;
+};
 
 void PrintIntro ()
 {
-    int32 WORD_LENGTH = BCGame.getHiddenWordLength();
-    std::cout << "Welcome to Bulls and Cows!\n";
+    
+    std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
+    std::cout << std::endl;
+    std::cout << "          }   {         ___ " << std::endl;
+    std::cout << "          (o o)        (o o) " << std::endl;
+    std::cout << "   /-------\\ /          \\ /-------\\ " << std::endl;
+    std::cout << "  / | BULL |O            O| COW  | \\ " << std::endl;
+    std::cout << " *  |-,--- |              |------|  * " << std::endl;
+    std::cout << "    ^      ^              ^      ^ " << std::endl;
+    std::cout << "\n";
+    int32 WORD_LENGTH = ChooseAHiddenWordLength();
     std::cout << "Can you guess a " << WORD_LENGTH << " letter isogram I'm thinking of?\n";
     std::cout << "\n";
     return;
@@ -47,7 +73,7 @@ void PrintIntro ()
 FText GetGuess ()
 {
     int32 CurrentTry = BCGame.getCurrentTry();
-    std::cout << "Try " << CurrentTry << ": ";
+    std::cout << "Try " << CurrentTry << " of "<< BCGame.getMaxTries() << " : ";
     std::cout << "Enter your guess ";
     
     FText Guess = "";
@@ -63,13 +89,13 @@ void GiveUserFeedback(FText Guess)
     switch (Status)
     {
         case EGuessStatus::Not_Isogram:
-            std::cout << "Your guess must be an isogram\n";
+            std::cout << "Your guess must be an isogram\n\n";
             return;
         case EGuessStatus::Not_Lowercase:
-            std::cout << "Your guess must be in lowercase\n";
+            std::cout << "Your guess must be in lowercase\n\n";
             return;
         case EGuessStatus::Wrong_Length:
-            std::cout << "Please, enter a " << BCGame.getHiddenWordLength() << " letter word\n";
+            std::cout << "Please, enter a " << BCGame.getHiddenWordLength() << " letter word\n\n";
             return;
         default:
             FBullCowCount BullCowCount = BCGame.SubmitValidGuess(Guess);
@@ -87,7 +113,7 @@ void PlayGame ()
     BCGame.Reset();
     int32 MaxTries = BCGame.getMaxTries();
     
-    while (BCGame.getCurrentTry() != MaxTries && !BCGame.IsGameWon())
+    while (BCGame.getCurrentTry() <= MaxTries && !BCGame.IsGameWon())
     {
         GiveUserFeedback(GetGuess());
     }
