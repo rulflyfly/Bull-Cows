@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CEC26CDE24DD901700C3D177 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEC26CDD24DD901700C3D177 /* main.cpp */; };
+		CEC26CE624DDE65100C3D177 /* FBull&CowsGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEC26CE424DDE65100C3D177 /* FBull&CowsGame.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		CEC26CDA24DD901700C3D177 /* Bull&Cows */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Bull&Cows"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC26CDD24DD901700C3D177 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		CEC26CE424DDE65100C3D177 /* FBull&CowsGame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "FBull&CowsGame.cpp"; sourceTree = "<group>"; };
+		CEC26CE524DDE65100C3D177 /* FBull&CowsGame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "FBull&CowsGame.hpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				CEC26CDD24DD901700C3D177 /* main.cpp */,
+				CEC26CE424DDE65100C3D177 /* FBull&CowsGame.cpp */,
+				CEC26CE524DDE65100C3D177 /* FBull&CowsGame.hpp */,
 			);
 			path = "Bull&Cows";
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC26CE624DDE65100C3D177 /* FBull&CowsGame.cpp in Sources */,
 				CEC26CDE24DD901700C3D177 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
