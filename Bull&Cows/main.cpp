@@ -5,12 +5,13 @@
  for all user interaction;
  For game logic see the FBUllCowGame class;
  */
-
+#pragma once
 #include <iostream>
 #include <string>
 #include "FBull&CowsGame.hpp"
 #include <sstream>
 
+// to make syntax Unreal friendly
 using FText = std::string;
 using int32 = int;
 

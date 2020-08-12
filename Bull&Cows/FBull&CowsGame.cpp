@@ -1,6 +1,12 @@
+#pragma once
 #include "FBull&CowsGame.hpp"
 #include <map>
 #define TMap std::map
+
+FBullCowGame::FBullCowGame() // the constructor
+{
+    Reset();
+};
 
 void FBullCowGame::Reset() 
 {
@@ -26,24 +32,15 @@ bool FBullCowGame::IsGameWon() const
     return bGameIsWon;
 };
 
-FBullCowGame::FBullCowGame()
-{
-    Reset();
-};
-
 int32 FBullCowGame::getHiddenWordLength() const
 {
     return MyHiddenWord.length();
 };
 
-//receives a valid guess, increments count,and returns count
 FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
 {
-    //increment the turn number
     MyCurrentTry++;
-    //set up a return variable
     FBullCowCount BullCowCount;
-    //loop through all letters in the guess and get Buuls and Cows
     int32 WordLength = MyHiddenWord.length();
     for (int32 MHWChar = 0; MHWChar < WordLength; MHWChar++)
     {

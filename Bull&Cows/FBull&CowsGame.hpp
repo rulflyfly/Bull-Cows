@@ -1,3 +1,4 @@
+#pragma once
 #ifndef FBull_CowsGame_hpp
 #define FBull_CowsGame_hpp
 
@@ -8,6 +9,7 @@
 
 #endif /* FBull_CowsGame_hpp */
 
+// to make syntax Unreal friendly 
 using FString = std::string;
 using int32 = int;
 
